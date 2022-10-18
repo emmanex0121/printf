@@ -50,7 +50,7 @@ int pr_str(va_list types, char buffer[],
 			str = "      ";
 	}
 
-	while (str[length] != '\0')
+	while (str[len] != '\0')
 		len++;
 
 	if (precision >= 0 && precision < len)
