@@ -34,7 +34,7 @@ int pr_char(va_list types, char buffer[],
 int pr_str(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
 {
-	int len, i;
+	int len = 0, i;
 	char *str = va_arg(types, char *);
 
 	UNUSED(buffer);
@@ -50,7 +50,7 @@ int pr_str(va_list types, char buffer[],
 			str = "      ";
 	}
 
-	for (len = 0; str[len] != '\0')
+	while (str[length] != '\0')
 		len++;
 
 	if (precision >= 0 && precision < len)
