@@ -1,7 +1,9 @@
 #include "main.h"
 
+void print_buffer(char buffer[], int *buff_ind);
+
 /**
- * handle_print - Prints an argument based on its type
+ * print_args - Prints an argument based on its type
  * @fmt: Formatted string in which to print the arguments.
  * @list: List of arguments to be printed.
  * @ind: ind.
@@ -48,4 +50,16 @@ int print_args(const char *fmt, int *ind, va_list list, char buffer[],
 		return (unknow_len);
 	}
 	return (printed_chars);
+}
+
+/**
+ * print_buffer - Prints the contents of the buffer if it exist
+ * @buffer: Array of chars
+ * @buff_ind: Index at which to add next char, represents the length.
+ */
+void print_buffer(char buffer[], int *buff_ind)
+{
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+	*buff_ind = 0;
 }
