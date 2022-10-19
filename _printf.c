@@ -16,7 +16,9 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
+
 	va_start(list, format);
+
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
@@ -32,8 +34,8 @@ int _printf(const char *format, ...)
 			print_buffer(buffer, &buff_ind);
 			flags = get_flags(format, &i);
 			width = get_width(format, &i, list);
-			precision = get_precision(format, &i, list)
-				;
+			precision = get_precision(format, &i,
+					list);
 			size = get_size(format, &i);
 			++i;
 			printed = print_args(format, &i, list,
